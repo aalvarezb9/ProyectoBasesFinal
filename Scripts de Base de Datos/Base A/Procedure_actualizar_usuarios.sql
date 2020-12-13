@@ -1,0 +1,23 @@
+DROP PROCEDURE IF EXISTS ACTUALIZAR_USUARIOS;
+DELIMITER $$
+CREATE PROCEDURE ACTUALIZAR_USUARIOS(IN ID INT, IN P_NOMBRE VARCHAR(250), IN S_NOMBRE VARCHAR(250), IN P_APELLIDO VARCHAR(250),
+				     IN S_APELLIDO VARCHAR(250), IN USERNAME VARCHAR(250), IN CONTRA VARCHAR(250), IN TIPO_USER INT,
+				     IN PCOLOR VARCHAR(250), IN FCOLOR VARCHAR(250))
+
+BEGIN
+
+	UPDATE Usuario SET p_nombre = P_NOMBRE, 
+	s_nombre = S_NOMBRE, 
+	p_apellido = P_APELLIDO, 
+	s_apellido = S_APELLIDO, 
+	username = USERNAME, 
+	contraseña = CONTRA, 
+	tipo_usuario_id = TIPO_USER WHERE id = ID;
+
+	UPDATE configuracion_paleta
+    	SET configuracion_paleta.Pen_Color = PCOLOR,
+    	configuracion_paleta.Fill_Color = FCOLOR
+    	WHERE Usuario.id = ID;
+
+END$$
+DELIMITER ;
