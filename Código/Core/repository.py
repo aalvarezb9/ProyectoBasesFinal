@@ -1,5 +1,17 @@
 # -*- coding: utf-8 -*-
 
+
+"""
+    ! Repositorio de dibujos
+        * Crear dibujos
+        * Visualizarlos
+        * Eliminarlos
+
+    @author: Ángel
+    @date: 13 \ 12 \ 2020 
+
+"""
+
 from ConnectionConfig import ConnectionConfig
 from MySQLEngine import MySQLEngine
 from tkinter import *
