@@ -1,5 +1,8 @@
-@author nohernandeza@unah.hn  @date 2020/12/07
+@author: Ángel René Álvarez
 
+======================================
+
+@date: Diciembre 13, 2020
 
 # Descripción de la base de datos para la resolución del problema.
 
@@ -52,6 +55,20 @@ Se hizo la creación de cinco (5) tablas, las cuales serán detalladas a continu
 
 Además, se creó una base de datos que respaldo con una tabla que almacena los dibujos de la tabla principal en formato BLOB.
 
+## Antes de obtener la estructura...
+---
+
+Comprender la estructura de las bases de datos fue una parte crucial antes de empezar a programar, debido a que este elemento era la estructura sobre la que se iba a armar el proyecto, y, atendiendo al enunciado del mismo, se hizo la comprensión para armar las tablas, procedimientos, y demás, respondiendo a las siguientes preguntas:
+
+1. ¿Cuál elemento involucrado era el núcleo?
+2. ¿Interdependencias entre tablas?
+3. ¿En qué lugar convenía llamar a procedimientos almacenados?
+4. ¿Cuándo usar los triggers?
+5. ¿Era necesario hacer consultas tan extensas cada vez que se requería?
+6. ¿Qué pasa al eliminar un elemento que depende de otros?
+
+Al responder esas preguntas, el camino se fue alumbrando, y se llegó a conocer más de lo que se esperaba sobre el tema, por ejemplo, que los triggers iban a ser demasiado útiles para la birácora, o que las vistas ahorraban líneas de código en sql, etc.
+
 ## Componentes
 ---
 
@@ -73,6 +90,12 @@ A continuación, se ejemplificará a través de las tablas ER el modelo de base 
 
 ![image](https://drive.google.com/uc?export=view&id=1jQ6-c1UOT0zhalcG4hZQuVaGfZx2zo6f)
 
+Esta tabla se logró hacer después de que se planteó lo siguiente:
+* Un usuario tiene un repositorio
+* Un repositorio tiene 0 o muchos dibujos
+* El mismo dibujo, no puede estar en dos repositorios a la vez
+* Un usuario, puede tener una configuración de paleta de colores
+
 ## Otros componentes necesarios
 ---
 
@@ -82,4 +105,7 @@ A continuación, se ejemplificará a través de las tablas ER el modelo de base 
 * Etc
 
 
+## Investigación en tiempos de proyecto
+---
 
+El componente investigativo del proyecto llevó a leer información varia, de la cual se aprendió mucho previo a comprender lo solicitado, como por ejemplo, un archivo 'json' que se lee en modo escritura, no devuelveve un json (diccionario en python), por lo tanto, no se puede manipularlo a su manerra.
