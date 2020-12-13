@@ -17,6 +17,7 @@ class GetId:
     def __init__(self):
         pass
 
+    # Obtiene el id del usuario activo
     def get_id(self):
         with open(os.getcwd() + '/Core/cookie') as f:
             userInfo = json.load(f)

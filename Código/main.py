@@ -31,9 +31,6 @@ def main():
 
     print("Ejecución completada")   # Ejecución del programa ya terminado
     archivo_cookie = os.getcwd() + '/Core/cookie'   # Se hace referencia al archivo 'cookie', se explicará en las demás clases su función
-    # id = getid.GetId().get_id()
-    # values = (id, 0)
-    # con.Connection(id).logout(values)
     remove(archivo_cookie) if os.path.isfile(archivo_cookie) else False # Se borra el archivo 'cookie' en caso de que exista
 
 

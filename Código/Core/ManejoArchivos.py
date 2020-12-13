@@ -16,12 +16,14 @@ class Manejo:
     def __init__(self, filename):
         self.filename = filename
 
+    # Comprime el contenido del archivo que se recibe como parámetro
     def comprimir(self, content):
         with gzip.open(self.filename + '.gz', 'wt') as f:
             f.write(content)
 
         return self.filename + '.gz'
 
+    # Hace lo inverso del método anterior
     def descomprimir(self):
         with gzip.open(self.filename, 'rt') as f:
             data = f.read()

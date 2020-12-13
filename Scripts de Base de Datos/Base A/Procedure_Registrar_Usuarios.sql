@@ -14,3 +14,6 @@ BEGIN
 
 END$$
 DELIMITER ;
+
+CALL REGISTRAR_USUARIO("usuario2", "usuario2", "usuario2", "usuario2" ,"usuario2", "usuario2", 2, "#00FF00FF", "#FF00FF00");
+CALL REGISTRAR_USUARIO("usuario3", "usuario3", "usuario3", "usuario3" ,"usuario3", "usuario3", 1, "#00FF00FF", "#FF00FF00");

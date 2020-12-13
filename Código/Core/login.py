@@ -40,6 +40,7 @@ class Login:
         # self.button.grid(row=3, column=1)
         self.button.pack(pady=20)
     
+    # Crea un json que simula a una cookie
     def make_cookie(self, id):
         file = open(os.getcwd() + '/Core/cookie', 'w')
         file.write('{"id":"%s"}' % id)
@@ -49,13 +50,13 @@ class Login:
         self.root.destroy()
         self.open_home()
 
-
+    # Se abre la interfaz principal
     def open_home(self):
         root = tkinter.Tk()
         # otroObjeto = gui.GettingData(info)
         gui.DrawingApplication(root)
 
-
+    # Se valida que los campos no estén vacíos
     def validar_credenciales(self):
         self.username = self.string_login.get()
         self.password = self.string_password.get()
@@ -65,11 +66,7 @@ class Login:
             status, idd = None, None
             values = (self.username, self.password, status, idd)
             self.try_connect(values)
-        #Esto hay que mejorarlo, no maneja las excepciones 
-        # try:
-        #     self.try_connect(self.username, self.password) if (self.username != '' and self.password != '') else self.error("Debe llenar todos los campos")
-        # except IndexError:
-        #     print("Conexión fallida")
+        
 
     def try_connect(self, values):
         self.config = ConnectionConfig.ConnectionConfig(
@@ -82,23 +79,14 @@ class Login:
         self.engine = MySQLEngine.MySQLEngine(self.config)
         self.obtener_usuario(values)
 
+    # Se manda a crear la cookie siempre y cuando el result de la query no sea nulo
     def obtener_usuario(self, values):
         id = self.engine.procedureLogin("Login", values)
-        # id = self.engine.select("CALL Login('%s', '%s', @status, @idd)" % (self.username, self.password))
-        # if id[0][0] == 0:
-            # self.error("Credenciales inválidas")
-        # else:
-            # self.make_cookie(id[0][0])
-        # print(status)
-        # print(idd)
-        # usuario = self.engine.select("SELECT id FROM Usuario WHERE username = '%s' AND contraseña = '%s' " %(username, password) )
-        # self.make_cookie(usuario[0][0]) if len(usuario) != 0 else self.error("Credenciales inválidas")
         self.make_cookie(id[-1]) if id[-1] != None else self.error("Credenciales inválidas")
 
     def error(self, text):
         messagebox.showerror("Error", text)
         
-    
     def start(self):
         self.root.mainloop()
 

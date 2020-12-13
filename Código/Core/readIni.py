@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 
+"""
+    ! Se obtienen los valores establecidos en el config.ini
+        * Con esto se evita problemas de compatibilidad entre computadoras
+
+    @author: Ángel
+    @date: 13 \ 12 \ 2020 
+
+"""
+
 import configparser
 
 class ReadINI:

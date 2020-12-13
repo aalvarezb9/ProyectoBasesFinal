@@ -16,7 +16,7 @@ class createUser:
         self.createUser.resizable(False,False)
     #damos color de fondo a nuestra ventana
         self.createUser.config(background="#ccd9cf")
-    #creamos un titulo para el formulario
+    #creamos un titulo para el formulario, depende del tipo de petición
         if action == 'post':
             self.createUser_label = Label(self.createUser, text="Crear Usuario", font=("Arial", 20), bg="#9bc0b9", fg="#0b1828", width="550", height="2")
         else:
@@ -24,6 +24,7 @@ class createUser:
             self.createUser_label = Label(self.createUser, text="Editar Usuario", font=("Arial", 20), bg="#9bc0b9", fg="#0b1828", width="550", height="2")
         self.createUser_label.pack()
 
+    #se crean las variables en las que se almacenará lo escrito en los campos de texto
         self.userNameS = StringVar(self.createUser)
         self.firstNameS = StringVar(self.createUser)
         self.secondNameS = StringVar(self.createUser)
@@ -128,7 +129,7 @@ class createUser:
         self.fillColor.set("#000000")
 
     
-
+    # Método que registra al usuario en la BD
     def save_user(self):
         username = self.userNameS.get()  
         fname = self.firstNameS.get()  
@@ -141,18 +142,7 @@ class createUser:
         fillcolor = self.fillColor.get()
         pencolor = self.penColor.get()
 
-        # values = (
-        #     fname,
-        #     sname,
-        #     flastn,
-        #     slastn,
-        #     username,
-        #     passw,
-        #     typeuser, 
-        #     pencolor,
-        #     fillcolor
-        # )
-
+        # Aquí comienzan las validaciones
         if (
             username == '' or
             fname == '' or
